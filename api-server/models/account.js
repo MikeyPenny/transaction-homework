@@ -7,4 +7,4 @@ const Account = mongoose.model('accounts', new Schema({
     customer: {type: mongoose.Schema.Types.ObjectId, ref: 'customers'}
 }));
 
-module.exports = Account;p
+module.exports = Account;
