@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const Customer = require('../models/customer');
 const Account = require('../models/account');
 const mongoose = require('mongoose');
-// const ObjectId = new mongoose.Schema.Types.ObjectId();
 
 const saltRounds = 15;
 
@@ -19,8 +18,7 @@ router.post('/signup', (req, res, next) => {
         customerId: req.body.customerId,
         name: req.body.name, 
         surname: req.body.surname, 
-        password: req.body.password, 
-        customerBalance: req.body.customerBalance, 
+        password: req.body.password,
         accounts: []
     });
 
@@ -56,18 +54,9 @@ router.post('/login', (req, res, next) => {
                 else if(match) {
                     user = JSON.parse(JSON.stringify(user));
                     delete user.password;
+                    req.session.user = user;
                     
-                    if (user.accounts.length > 0) {
-                        let total = user.accounts.reduce((accum, account) => {
-                            return accum + account.accountBalance;
-                        },0);
-                        user.customerBalance = total;
-                        req.session.user = user;
-                        res.status(200).json({message: 'Logged in', user: user});
-                    } else {
-                        req.session.user = user;
-                        res.status(200).json({message: 'Logged in', user: user});
-                    }
+                    res.status(200).json({message: 'Logged in', user: user});
                     
                 } else {
                     res.status(403).json({message: 'CustomerId or Password invalid'});
@@ -82,37 +71,6 @@ router.post('/login', (req, res, next) => {
     });
 
 });
-
-// Account.aggregate([
-//     {
-//         '$match': {
-//             'customer': mongoose.Types.ObjectId(user._id)
-//         }
-//         }, {
-//         '$group': {
-//             '_id': mongoose.Types.ObjectId(user._id), 
-//             'total': {
-//             '$sum': '$accountBalance'
-//             }
-//         }
-//     }
-// ])
-// .then(data => {
-//     if (data[0].total) {
-//         debugger
-//         user.customerBalance = data[0].total;
-//         req.session.user = user;
-        
-//         res.status(200).json({message: 'Logged in', user: user});
-//     } else {
-//         req.session.user = user;
-//         res.status(200).json({message: 'Logged in', user: user});
-//     }
-// })
-// .catch(err => {
-//     debugger
-//     res.status(403).json({message: `Error login ${err}`});
-// })
 
 router.get('/get-user', (req, res) => {
     if (req.session.user) {

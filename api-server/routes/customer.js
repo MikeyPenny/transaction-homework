@@ -12,6 +12,12 @@ router.get('/customer-info', (req, res) => {
     const _id = req.session.user._id;
     debugger
     Customer.findOne({_id: _id})
+    .populate({
+        path: 'accounts',
+        populate: {
+            path: 'transactions'
+        }
+    })
     .then(customer => {
         
         res.status(200).json({customer: customer})
