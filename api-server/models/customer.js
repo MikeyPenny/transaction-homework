@@ -8,7 +8,6 @@ const customerSchema =  new Schema({
     name: String,
     surname: String,
     password: String,
-    customerBalance: Number,
     accounts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Account'}]
 });
 
