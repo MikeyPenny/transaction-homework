@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
-const Account = mongoose.model('accounts', new Schema({
+const accountSchema = new Schema({
+    _id: ObjectId,
     number: String,
     accountBalance: Number,
-    customer: {type: mongoose.Schema.Types.ObjectId, ref: 'customers'}
-}));
+    transactions: [{ type: ObjectId, ref: 'Transaction' }],
+});
+
+const Account = mongoose.model('Account', accountSchema);
 
 module.exports = Account;

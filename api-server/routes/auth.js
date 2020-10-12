@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const Customer = require('../models/customer');
 const Account = require('../models/account');
 const mongoose = require('mongoose');
+// const ObjectId = new mongoose.Schema.Types.ObjectId();
 
 const saltRounds = 15;
 
@@ -13,7 +14,15 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', (req, res, next) => {
     
-    let newCustomer = {name, surname, password, customerBalance, customerId} = req.body;
+    let newCustomer = new Customer({
+        _id: new mongoose.Types.ObjectId(),
+        customerId: req.body.customerId,
+        name: req.body.name, 
+        surname: req.body.surname, 
+        password: req.body.password, 
+        customerBalance: req.body.customerBalance, 
+        accounts: []
+    });
 
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
         if (err) res.status(403).json({message: err});
@@ -34,6 +43,12 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', (req, res, next) => {
     
     Customer.findOne({customerId: req.body.customerId})
+    .populate({
+        path: 'accounts',
+        populate: {
+            path: 'transactions' 
+        }
+    })
     .then((user) => {
         if (user) {
             bcrypt.compare(req.body.password, user.password, (err, match) => {
@@ -42,32 +57,18 @@ router.post('/login', (req, res, next) => {
                     user = JSON.parse(JSON.stringify(user));
                     delete user.password;
                     
-                    Account.aggregate([
-                        {
-                            '$match': {
-                                'customer': mongoose.Types.ObjectId(user._id)
-                            }
-                            }, {
-                            '$group': {
-                                '_id': mongoose.Types.ObjectId(user._id), 
-                                'total': {
-                                '$sum': '$accountBalance'
-                                }
-                            }
-                        }
-                    ])
-                    .then(data => {
-                        
-                        user.customerBalance = data[0].total;
+                    if (user.accounts.length > 0) {
+                        let total = user.accounts.reduce((accum, account) => {
+                            return accum + account.accountBalance;
+                        },0);
+                        user.customerBalance = total;
                         req.session.user = user;
-                        
                         res.status(200).json({message: 'Logged in', user: user});
-                    })
-                    .catch(err => {
-                        res.status(403).json({message: err});
-                    })
+                    } else {
+                        req.session.user = user;
+                        res.status(200).json({message: 'Logged in', user: user});
+                    }
                     
-
                 } else {
                     res.status(403).json({message: 'CustomerId or Password invalid'});
                 }
@@ -81,6 +82,37 @@ router.post('/login', (req, res, next) => {
     });
 
 });
+
+// Account.aggregate([
+//     {
+//         '$match': {
+//             'customer': mongoose.Types.ObjectId(user._id)
+//         }
+//         }, {
+//         '$group': {
+//             '_id': mongoose.Types.ObjectId(user._id), 
+//             'total': {
+//             '$sum': '$accountBalance'
+//             }
+//         }
+//     }
+// ])
+// .then(data => {
+//     if (data[0].total) {
+//         debugger
+//         user.customerBalance = data[0].total;
+//         req.session.user = user;
+        
+//         res.status(200).json({message: 'Logged in', user: user});
+//     } else {
+//         req.session.user = user;
+//         res.status(200).json({message: 'Logged in', user: user});
+//     }
+// })
+// .catch(err => {
+//     debugger
+//     res.status(403).json({message: `Error login ${err}`});
+// })
 
 router.get('/get-user', (req, res) => {
     if (req.session.user) {
