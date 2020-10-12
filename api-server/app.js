@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 require('dotenv').config();
-
+const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const logger = require('morgan');
@@ -26,6 +26,7 @@ app.use(cors({
     credentials: true
 }));
 
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -44,7 +45,7 @@ app.use(cookieParser());
 app.use('/auth', require('./routes/auth')); // Log in session route
 app.use('/account', require('./routes/account')); // Account routes
 app.use('/customer', require('./routes/customer')); // Customer routes
-// app.use('/transaction', require('./routes/transaction')); // Transaction routes
+app.use('/transaction', require('./routes/transaction')); // Transaction routes
 
 // Connection confirm
 app.listen(port, () => {
