@@ -7,26 +7,21 @@ router.get('/customer', (req, res) => {
     res.send('ok');
 });
 
-router.get('/customer-info', (req, res) => {
+router.get('/customers-info', (req, res) => {
 
-    const _id = req.session.user._id;
-    debugger
-    Customer.findOne({_id: _id})
+    Customer.find()
     .populate({
         path: 'accounts',
         populate: {
             path: 'transactions'
         }
     })
-    .then(customer => {
-        
-        res.status(200).json({customer: customer})
+    .then(customers => {
+        res.status(200).json({customers: customers})
     })
     .catch(err => {
         res.status(403).json({message: err});
     });
-    
-
 
 });
 
