@@ -72,6 +72,24 @@ router.post('/login', (req, res, next) => {
 
 });
 
+router.get('get-users', (req, res) => {
+
+    Customer.find()
+    .populate({
+        path: 'accounts', 
+        populate: {
+            path: 'transactions',
+        }
+    })
+    .then(accounts => {
+        res.status(200).json({response: accounts});
+    })
+    .catch(err => {
+        res.status(403).json({message: err});
+    });
+
+})
+
 router.get('/get-user', (req, res) => {
     if (req.session.user) {
         res.status(200).json(req.session.user);

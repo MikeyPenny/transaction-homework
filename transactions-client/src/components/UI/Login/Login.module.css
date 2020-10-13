@@ -1,0 +1,27 @@
+.Login {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+}
+
+.Login button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 8px;
+    background-color: #ffd200;
+    border: 1px solid #ffd200;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 65%;
+    height: 80%;
+}
+
+.Login p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    
+}
