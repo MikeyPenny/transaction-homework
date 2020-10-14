@@ -32,7 +32,7 @@ router.post('/new-transaction', (req, res) => {
         .then(() =>{
             newTransaction.save()
             .then(transaction => {
-                res.status(200).json({response: transaction});
+                res.status(200).json({transaction: transaction});
             })
             .catch(err => {
                 res.status(403).json({message: `Transaction write failed - ${err}`})
