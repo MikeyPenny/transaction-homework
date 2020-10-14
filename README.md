@@ -6,12 +6,12 @@ The assessment consists of an API to be used for opening a new “current accoun
 customers.
 
 Requirements of the assessment
-• The API will expose an endpoint which accepts the user information (customerID,
+* The API will expose an endpoint which accepts the user information (customerID,
 initialCredit).
-• Once the endpoint is called, a new account will be opened connected to the user whose ID is
+* Once the endpoint is called, a new account will be opened connected to the user whose ID is
 customerID.
-• Also, if initialCredit is not 0, a transaction will be sent to the new account.
-• Another Endpoint will output the user information showing Name, Surname, balance, and
+* Also, if initialCredit is not 0, a transaction will be sent to the new account.
+* Another Endpoint will output the user information showing Name, Surname, balance, and
 transactions of the accounts.
 
 # Technical Requirements
