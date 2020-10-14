@@ -24,7 +24,6 @@ export default class AppBuilder extends Component {
 
     componentDidMount = () => {
         this.loadUsers();
-        console.log('Customer mounted');
     }
 
     loadUsers = () => {
@@ -163,8 +162,7 @@ export default class AppBuilder extends Component {
         })
         .then(response => {
             let transaction = response.data.transaction;
-            this.loadNewTransaction(transaction);     
-
+            this.loadNewTransaction(transaction);            
         })
         .catch(err => {
             console.log('Error ' + err);
@@ -197,6 +195,7 @@ export default class AppBuilder extends Component {
         customer.balance = balance;
         customer.transactions = transactions;
         this.setState({customer: customer});
+
     }
 
     render() {
