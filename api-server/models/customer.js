@@ -14,3 +14,7 @@ const customerSchema =  new Schema({
 const Customer = mongoose.model('Customer', customerSchema);
 
 module.exports = Customer;
+
+/*
+    Every customer has its own list of accounts
+*/

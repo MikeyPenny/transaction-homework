@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Routes
-app.use('/auth', require('./routes/auth')); // Log in session route
+// app.use('/auth', require('./routes/auth')); // Log in session route
 app.use('/account', require('./routes/account')); // Account routes
 app.use('/customer', require('./routes/customer')); // Customer routes
 app.use('/transaction', require('./routes/transaction')); // Transaction routes

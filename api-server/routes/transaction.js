@@ -48,6 +48,9 @@ router.post('/new-transaction', (req, res) => {
     
 });
 
+/*
+
+// Not useful for the moment
 router.get('/transactions', (req, res) => {
 
     const _id = req.session.user._id;
@@ -68,7 +71,7 @@ router.get('/transactions', (req, res) => {
 
 });
 
-
+*/
 
 
 module.exports = router;
