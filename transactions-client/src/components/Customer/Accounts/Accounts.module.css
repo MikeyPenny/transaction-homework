@@ -1,0 +1,23 @@
+.Accounts {
+    display: flex;
+}
+
+.Left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60%;
+}
+
+.Right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+}
+
+.Table {
+    width: 80%;
+}

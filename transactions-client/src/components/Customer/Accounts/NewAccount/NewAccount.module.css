@@ -1,0 +1,4 @@
+.NewAccount {
+    display: flex;
+    flex-direction: column;
+}

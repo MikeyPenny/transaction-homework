@@ -11,7 +11,8 @@ router.get('/account', (req, res) => {
 });
 
 router.post('/new_account', (req, res) => {
-    const _id = req.session.user._id;
+    
+    const _id = req.body.id;
 
     let newAccount = {number, initialCredit} = req.body;
     
@@ -35,7 +36,7 @@ router.post('/new_account', (req, res) => {
     Customer.findById({_id: _id})
     .then((customer) => {
         customer.accounts.push(newAccount._id)
-        Customer.update({ _id: _id }, { $set: { accounts: customer.accounts} })
+        Customer.updateOne({ _id: _id }, { $set: { accounts: customer.accounts} })
         .then(() => {
             Account.findOne({number: newAccount.number})
             .then(account => {
@@ -43,8 +44,8 @@ router.post('/new_account', (req, res) => {
                 else {
                     if (req.body.initialCredit === 0) {
                         newAccount.save()
-                        .then(() => {
-                            res.status(200).json({message: 'Account created succesfully'})
+                        .then((account) => {
+                            res.status(200).json({account: account})
                         })
                         .catch(err => {
                             res.status(500).json({message: `Noot ${err}`});
@@ -53,8 +54,8 @@ router.post('/new_account', (req, res) => {
                         newAccount.save()
                         .then((account) => {
                             newTransaction.save()
-                            .then(() => {
-                                res.status(200).json({message: 'Account created succesfully', response: account})
+                            .then((transaction) => {
+                                res.status(200).json({account: account, transaction : transaction})
                             })
                             .catch(err => {
                                 res.status(403).json({message: `Transaction err ${err}`});
