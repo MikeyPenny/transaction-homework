@@ -1,0 +1,26 @@
+.Transactions {
+    display: flex;
+    flex-direction: column;
+}
+
+.Head {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.Table {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.Table tbody {
+    
+    width: 100%;
+}
+
+.Table tr {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}

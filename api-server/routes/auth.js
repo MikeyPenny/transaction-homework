@@ -39,6 +39,7 @@ router.post('/signup', (req, res, next) => {
 })
 
 router.post('/login', (req, res, next) => {
+
     
     Customer.findOne({customerId: req.body.customerId})
     .populate({
