@@ -9,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 70%;
 }
 
 .NewTransaction select {
@@ -30,5 +30,5 @@
 .InputDiv {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 20%;
 }

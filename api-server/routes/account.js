@@ -76,24 +76,26 @@ router.post('/new_account', (req, res) => {
 
 });
 
-router.get('/accounts', (req, res) => {
 
-    const _id = req.session.user._id;
+// This is not used for the moment
+// router.get('/accounts', (req, res) => {
 
-    Customer.find({_id: _id})
-    .populate({
-        path: 'accounts', 
-        populate: {
-            path: 'transactions',
-        }
-    })
-    .then(accounts => {
-        res.status(200).json({response: accounts});
-    })
-    .catch(err => {
-        res.status(403).json({message: err});
-    });
+//     const _id = req.session.user._id;
 
-});
+//     Customer.find({_id: _id})
+//     .populate({
+//         path: 'accounts', 
+//         populate: {
+//             path: 'transactions',
+//         }
+//     })
+//     .then(accounts => {
+//         res.status(200).json({response: accounts});
+//     })
+//     .catch(err => {
+//         res.status(403).json({message: err});
+//     });
+
+// });
 
 module.exports = router;
