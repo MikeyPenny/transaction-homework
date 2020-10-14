@@ -1,4 +1,8 @@
 .Content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
     margin-top: 80px;
-    height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
+

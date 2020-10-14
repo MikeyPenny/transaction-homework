@@ -1,0 +1,34 @@
+.NewTransaction {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.NewTransaction form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.NewTransaction select {
+    padding: 5px;
+}
+
+.NewTransaction input {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.NewTransaction button {
+    padding: 5px;
+    background-color: #ffd200;
+    border: 1px solid #ffd200;
+}
+
+.InputDiv {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}

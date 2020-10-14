@@ -2,6 +2,8 @@ import React from 'react';
 import Transactions from '../Customer/Accounts/Transactions/Transactions';
 import { useHistory } from 'react-router-dom';
 
+import classes from './Customer.module.css';
+
 const Customer = (props) => {
 
     let history = useHistory();
@@ -26,22 +28,26 @@ const Customer = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <span>Select Customer: </span>
-                    <select name="select" value="" onChange={props.selectCustomer}>
-                        <option key="1" value="">Select Customer</option>
-                        {usersJsx}
-                    </select>
-                </label>
-                <p>Customer Id:  {customer.customerId}</p>
-                <p>Name:  {customer.name}</p>
-                <p>Surname:  {customer.surname}</p>
-                <p>Balance:  {customer.balance}</p>
+        <div className={classes.Customer}>
+            <form onSubmit={handleSubmit} className={classes.FormDiv}>
+                <div className={classes.LabelDiv}>
+                    <label>
+                        <span>Select Customer: </span>
+                        <select name="select" value="" onChange={props.selectCustomer}>
+                            <option key="1" value="">Select Customer</option>
+                            {usersJsx}
+                        </select>
+                    </label>
+                </div>
+                <div className={classes.DataDiv}>
+                    <p>Customer Id:  {customer.customerId}</p>
+                    <p>Name:  {customer.name}</p>
+                    <p>Surname:  {customer.surname}</p>
+                    <p>Balance:  {customer.balance}</p>
 
-                <button >Get Account info</button>
-                <p>Transactions</p>
+                    <button className={classes.Button}>Get Account info</button>
+                </div>
+                
                 
             </form>
             <Transactions 
