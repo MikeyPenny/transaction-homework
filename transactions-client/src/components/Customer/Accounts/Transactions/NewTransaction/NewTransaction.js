@@ -1,6 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import classes from './NewTransaction.module.css';
+
 const NewTransaction = (props) => {
 
     let history = useHistory();
@@ -20,7 +22,7 @@ const NewTransaction = (props) => {
 
     return (
     
-        <div>
+        <div className={classes.NewTransaction}>
             
             <form onSubmit={submitForm}>
                 <label>
@@ -31,13 +33,16 @@ const NewTransaction = (props) => {
                     </select>
                 </label>
                 <p>Account: {props.numberAccount}</p>
-                <input  
-                    type="text" 
-                    placeholder="Initial credit" 
-                    name="newCredit" 
-                    onChange={props.changeVal}
-                    value={props.initCredit} />
-                <button>Send Transaction</button>
+                <div className={classes.InputDiv}>
+                    <input  
+                        type="text" 
+                        placeholder="Initial credit" 
+                        name="newCredit" 
+                        onChange={props.changeVal}
+                        value={props.initCredit} />
+                    <button>Send Transaction</button>
+                </div>
+                
             </form>            
         </div>
 
