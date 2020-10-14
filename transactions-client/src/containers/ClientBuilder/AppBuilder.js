@@ -24,7 +24,6 @@ export default class AppBuilder extends Component {
 
     componentDidMount = () => {
         this.loadUsers();
-        console.log('Customer mounted');
     }
 
     loadUsers = () => {
@@ -90,9 +89,8 @@ export default class AppBuilder extends Component {
         .then(response => {
             let account = response.data.account;
             let transaction = response.data.transaction;
-            account.transactions.push(transaction);
+            account.transactions[0] = transaction;
             this.reloadCustomer(account);
-            console.log(transaction);
         })
         .catch(err => {
             console.log('Error ' + err);
@@ -164,17 +162,40 @@ export default class AppBuilder extends Component {
         })
         .then(response => {
             let transaction = response.data.transaction;
-            let customer = this.state.customer;
-            const index = customer.accounts.findIndex(account => {
-                return account.number === data.idCustomer
-            });
-            customer.accounts[index].transactions.push(transaction);
-            this.setState({customer: customer});
-
+            this.loadNewTransaction(transaction);            
         })
         .catch(err => {
             console.log('Error ' + err);
         });        
+
+    }
+
+    loadNewTransaction = (transaction) => {
+        let customer = this.state.customer;
+        // Add transaction
+        const index = customer.accounts.findIndex(account => {
+            return account.number === this.state.idCustomer
+        });
+        customer.accounts[index].transactions.push(transaction);
+        // Update account balance
+        let account = customer.accounts[index];
+        account.accountBalance = account.accountBalance + transaction.transactionAmount;
+        
+        // Customer balance
+        let balance = customer.accounts.reduce((acc, account) => {
+            return acc + account.accountBalance;
+        }, 0);
+        // Update transaction list
+        let transactions = [];
+        customer.accounts.map(account => {
+            return account.transactions.map(transaction => {
+                return transactions.push(transaction);
+            })
+        })
+        customer.balance = balance;
+        customer.transactions = transactions;
+        this.setState({customer: customer});
+        
 
     }
 
