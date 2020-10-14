@@ -31,7 +31,7 @@ const Accounts = (props) => {
                 </table>
             </div>
             <div className={classes.Right}>
-                <button onClick={props.changeVisible}>New Account</button>
+                <button className={classes.Button} onClick={props.changeVisible}>New Account</button>
                 <NewAccount 
                         show={props.show} 
                         accountChange={props.accountChange}

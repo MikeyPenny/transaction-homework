@@ -195,7 +195,6 @@ export default class AppBuilder extends Component {
         customer.balance = balance;
         customer.transactions = transactions;
         this.setState({customer: customer});
-        
 
     }
 

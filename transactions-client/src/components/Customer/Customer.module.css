@@ -1,0 +1,47 @@
+.Customer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.FormDiv {
+    display: flex;
+    width: 80%;
+}
+
+.LabelDiv {
+    display: flex;
+    align-items: flex-start;
+    width: 50%;
+}
+
+.LabelDiv label {
+    margin-top: 15px;
+}
+
+.LabelDiv select {
+    padding: 5px;
+    width: 200px;
+    margin-top: 22px;
+}
+
+.DataDiv {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.Button {
+    align-self: center;
+    width: 70%;
+    padding: 10px;
+    background-color: #ffd200;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+}

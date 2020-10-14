@@ -1,5 +1,6 @@
 .Accounts {
     display: flex;
+    width: 90%;
 }
 
 .Left {
@@ -19,5 +20,40 @@
 }
 
 .Table {
-    width: 80%;
+    display: flex;
+    width: 100%;
 }
+
+.Table tbody, tr {
+    width: 100%;
+}
+
+.Table tr {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #7a7a7a;
+    border-collapse: collapse;
+}
+
+.Table td, th {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    
+}
+
+.Button {
+    align-self: center;
+    width: 70%;
+    padding: 10px;
+    background-color: #ffd200;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.Accounts input {
+    padding: 8px;
+}
+
