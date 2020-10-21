@@ -88,8 +88,12 @@ export default class AppBuilder extends Component {
         })
         .then(response => {
             let account = response.data.account;
-            let transaction = response.data.transaction;
-            account.transactions[0] = transaction;
+            let transaction;
+            if (response.data.transaction) {
+                transaction = response.data.transaction;
+                account.transactions[0] = transaction;
+            }
+
             this.reloadCustomer(account);
         })
         .catch(err => {
@@ -104,15 +108,23 @@ export default class AppBuilder extends Component {
         let balance = customer.accounts.reduce((acc, account) => {
             return acc + account.accountBalance;
         }, 0);
-        let transactions = [];
-        customer.accounts.map(account => {
-            return account.transactions.map(transaction => {
-                return transactions.push(transaction);
-            })
-        })
+        
+        if (account.transactions.length > 0) {
+            let transactions = [];    
+            customer.accounts.map(account => {
+                return account.transactions.map(transaction => {
+                    return transactions.push(transaction);
+                })
+            });
+            customer.transactions = transactions;    
+        }
         customer.balance = balance;
-        customer.transactions = transactions;
-        this.setState({customer: customer, newAccount: false});
+        this.setState({
+            customer: customer, 
+            newAccount: false,
+            number: '',
+            initialCredit: ''
+        });
     }
 
     newAccountShowHandler = (e) =>{
@@ -194,7 +206,11 @@ export default class AppBuilder extends Component {
         })
         customer.balance = balance;
         customer.transactions = transactions;
-        this.setState({customer: customer});
+        this.setState({
+            customer: customer,
+            newCredit: '',
+            idCustomer: ''
+        });
 
     }
 
