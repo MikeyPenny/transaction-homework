@@ -1,2 +1,14 @@
-{"_id":{"$oid":"5f83a6cb40881035080114d0"},"accounts":[{"$oid":"5f83a6df40881035080114d1"},{"$oid":"5f844fdfb3ae3b3414ed1ab3"},{"$oid":"5f860142db2a7c40d855d4d1"},{"$oid":"5f860667db2a7c40d855d4d5"},{"$oid":"5f860705db2a7c40d855d4d7"},{"$oid":"5f86113fdb2a7c40d855d4e1"},{"$oid":"5f8612e8db2a7c40d855d4e3"},{"$oid":"5f861ad31df7563fac62ed61"},{"$oid":"5f861bd11df7563fac62ed63"},{"$oid":"5f86e5a04de3561d2cc03a6f"},{"$oid":"5f86e74a4de3561d2cc03a71"},{"$oid":"5f87191d43eede2cecda893f"},{"$oid":"5f871cdc43eede2cecda8948"}],"customerId":"248692","name":"Alejandra","surname":"Maldonado","password":"$2b$15$w5JrsvYHP74IK7dlVnxoDuV3fzvOW2kONW1GNQKOX4d0yX6RJaSUC","__v":{"$numberInt":"0"}}
-{"_id":{"$oid":"5f84f100df008648108e2e7e"},"accounts":[{"$oid":"5f84f358df008648108e2e81"},{"$oid":"5f85f4963997f53e804b95d8"},{"$oid":"5f85fb4d38e2f91b94c97786"},{"$oid":"5f85fe4338e2f91b94c97788"},{"$oid":"5f86002438e2f91b94c9778a"},{"$oid":"5f860397db2a7c40d855d4d3"},{"$oid":"5f860762db2a7c40d855d4d9"},{"$oid":"5f860839db2a7c40d855d4db"},{"$oid":"5f860a4bdb2a7c40d855d4dd"},{"$oid":"5f860ed7db2a7c40d855d4df"},{"$oid":"5f8614c347e60313ac0b6460"},{"$oid":"5f86164ad774830b0864d9ea"},{"$oid":"5f8616ff81857c44987df629"},{"$oid":"5f86170b81857c44987df62b"},{"$oid":"5f86175004a99c0b24f3544d"},{"$oid":"5f86175804a99c0b24f3544f"},{"$oid":"5f8618df53b5cb2c249f94fd"},{"$oid":"5f8619300b955142ace08138"},{"$oid":"5f861a21d07ec84718911ad8"},{"$oid":"5f861a581df7563fac62ed5f"},{"$oid":"5f861c5c1df7563fac62ed65"},{"$oid":"5f861d381df7563fac62ed67"},{"$oid":"5f87186743eede2cecda893b"},{"$oid":"5f8718f243eede2cecda893d"},{"$oid":"5f871bac43eede2cecda8945"},{"$oid":"5f871d8843eede2cecda894a"}],"customerId":"231256","name":"Miguel","surname":"Sandoval","password":"$2b$15$et6An9elqFqs01ALXIYTo.j9RO1MS4UiTeNJjuVUJVrFLNUPK2/pO","__v":{"$numberInt":"0"}}
+[
+    {   
+        "_id":{"$oid":"5f83a6cb40881035080114d0"},
+        "customerId" : "248692",
+        "name":"Alejandra",
+        "surname":"Maldonado"
+    },
+    {   
+        "_id":{"$oid":"5f84f100df008648108e2e7e"},
+        "customerId" : "231256",
+        "name" : "Miguel",
+        "surname" : "Sandoval"
+    }
+]

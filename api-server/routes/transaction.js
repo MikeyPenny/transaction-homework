@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Account = require('../models/account');
-const Customer = require('../models/customer');
 const Transaction = require('../models/transaction');
 const mongoose = require('mongoose');
 
@@ -47,31 +46,5 @@ router.post('/new-transaction', (req, res) => {
     });
     
 });
-
-/*
-
-// Not useful for the moment
-router.get('/transactions', (req, res) => {
-
-    const _id = req.session.user._id;
-    
-    Customer.find({_id: _id})
-    .populate({
-        path: 'accounts',
-        populate: {
-            path: 'transactions'
-        }
-    })
-    .then(accounts => {
-        res.status(200).json({response: accounts});
-    })
-    .catch(err => {
-        res.status(404).json({error: err});
-    });
-
-});
-
-*/
-
 
 module.exports = router;
