@@ -81,7 +81,7 @@ Compiled successfully!
 You can now view transactions-client in the browser.
 
   Local:            http://localhost:3000
-  On Your Network:  http://192.168.178.16:3000      
+  On Your Network:  http://192.---.---.16:3000      
 
 Note that the development build is not optimized.   
 To create a production build, use yarn build.
