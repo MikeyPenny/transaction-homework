@@ -98,8 +98,7 @@ This means the starting information about the customers has been loaded from the
 ## Usage
 
 In the main page you will see a **selector** to select the customer, the first time it will appear only the basic info of the customer
-After the selection of the customer you can go to the Accounts Option and press the New Account Button where you can insert the information
-of the Account and the Initial Credit and press the Request Account.
+After the selection of the customer you can go to the Accounts Option and press the New Account Button where you can type the Account Number and the Initial Credit and press the Request Account.
 
 This operation will update the transaction list below the Customer info.
 
