@@ -91,7 +91,7 @@ On the terminal where you started the server you will see the next:
 
 ```
 GET /customer/customers-info 304 132.455 ms - -
-GET /customer/customers-info 304 132.455 ms - -
+
 ```
 This means the starting information about the customers has been loaded from the DB.
 
