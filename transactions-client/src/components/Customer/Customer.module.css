@@ -9,7 +9,9 @@
 
 .FormDiv {
     display: flex;
-    width: 80%;
+    flex-direction: column;
+    width: 90%;
+    font-size: 18px;
 }
 
 .LabelDiv {
@@ -18,30 +20,55 @@
     width: 50%;
 }
 
-.LabelDiv label {
-    margin-top: 15px;
-}
-
 .LabelDiv select {
     padding: 5px;
     width: 200px;
-    margin-top: 22px;
+    font-size: 16px;
 }
 
 .DataDiv {
     display: flex;
     flex-direction: column;
-    
     justify-content: space-evenly;
-    width: 50%;
+    width: 100%;
 }
 
 .Button {
     align-self: center;
-    width: 35%;
-    padding: 5px;
+    width: 50%;
+    padding: 8px;
     background-color: #ffd200;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 16px;
+}
+
+@media (min-width: 500px) {
+    
+    .Customer {
+        width: 90%;
+        
+    }
+
+    .FormDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 90%;
+        font-size: 18px;
+    }
+
+    .DataDiv {
+        
+        width: 50%;
+    }
+
+    .LabelDiv {
+        justify-content: center;
+    }
+
+    .Button {
+        width: 30%;
+    }
+
 }

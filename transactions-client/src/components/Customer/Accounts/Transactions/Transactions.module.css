@@ -2,14 +2,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 90%;
 }
 
 .Head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 100%;
+    font-size: 16px;
 }
 .Table {
     display: flex;
@@ -37,4 +38,46 @@
     justify-content: flex-start;
     width: 100%;
     
+}
+
+.Table th {
+    font-size: 16px;
+}
+
+.NewTrans {
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #857a1b;
+    font-size: 14px;
+
+}
+
+@media (min-width: 500px) {
+    .Transactions {
+        
+        width: 80%;
+    }
+    
+    .Head {
+        width: 90%;
+    }
+    
+    .Table tr {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        align-items: center;
+        border: 1px solid #7a7a7a;
+        border-collapse: collapse;
+    }
+    
+    
+    .Table td, th {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        
+    }    
 }

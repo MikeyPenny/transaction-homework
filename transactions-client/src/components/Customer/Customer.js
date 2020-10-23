@@ -32,7 +32,6 @@ const Customer = (props) => {
             <form onSubmit={handleSubmit} className={classes.FormDiv}>
                 <div className={classes.LabelDiv}>
                     <label>
-                        <span>Select Customer: </span>
                         <select name="select" value="" onChange={props.selectCustomer}>
                             <option key="1" value="">Select Customer</option>
                             {usersJsx}
@@ -45,7 +44,7 @@ const Customer = (props) => {
                     <p>Surname:  {customer.surname}</p>
                     <p>Balance:  {customer.balance}</p>
 
-                    <button className={classes.Button}>Get Account info</button>
+                    <button className={classes.Button}>Account info</button>
                 </div>
                 
                 

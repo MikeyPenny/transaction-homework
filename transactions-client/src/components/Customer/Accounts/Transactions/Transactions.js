@@ -22,7 +22,7 @@ const Transactions = (props) => {
         <div className={classes.Transactions}>
             <div className={classes.Head}>
                 <h3>Transactions</h3>
-                <Link to="/newTransaction">New Transaction</Link>
+                <Link className={classes.NewTrans} to="/newTransaction">New Transaction</Link>
             </div>
             <table className={classes.Table}>
                 <tbody>
