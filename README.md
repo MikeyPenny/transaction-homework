@@ -81,7 +81,7 @@ Compiled successfully!
 You can now view transactions-client in the browser.
 
   Local:            http://localhost:3000
-  On Your Network:  http://192.168.178.16:3000      
+  On Your Network:  http://192.---.---.16:3000      
 
 Note that the development build is not optimized.   
 To create a production build, use yarn build.
@@ -91,17 +91,16 @@ On the terminal where you started the server you will see the next:
 
 ```
 GET /customer/customers-info 304 132.455 ms - -
-GET /customer/customers-info 304 132.455 ms - -
+
 ```
 This means the starting information about the customers has been loaded from the DB.
 
 ## Usage
 
 In the main page you will see a **selector** to select the customer, the first time it will appear only the basic info of the customer
-After the selection of the customer you can go to the Accounts Option and press the New Account Button where you can insert the information
-of the Account and the Initial Credit and press the Request Account.
+After the selection of the customer you can go to the Accounts Option and press the New Account Button where you can type the Account Number and the Initial Credit and then press the Request Account.
 
-This operation will update the transaction list below the Customer info.
+This operation will update the transaction list below the Customer info if the initial credit is greater than 0 if not, it will create a New Account number to make new transactions later.
 
 To request a New Transaction you can go to the New Transaction link from the landing page or from the Transactions option in the navigation bar.
 
