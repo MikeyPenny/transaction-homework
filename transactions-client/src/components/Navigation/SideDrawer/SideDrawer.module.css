@@ -1,0 +1,8 @@
+.SideDrawer {
+    width: 40%;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    background-color: #006260;
+    padding-left: 10px;
+}

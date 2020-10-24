@@ -19,7 +19,8 @@ export default class AppBuilder extends Component {
         initialCredit: '',
         newCredit: '',
         accountId: '',
-        idCustomer: ''
+        idCustomer: '',
+        isSelected: true
     }
 
     componentDidMount = () => {
@@ -62,7 +63,8 @@ export default class AppBuilder extends Component {
         customer.transactions = transactions;
         this.setState({
             customer: customer,
-            accounts: customer.accounts
+            accounts: customer.accounts,
+            isSelected: false
         });
         
     }
@@ -224,7 +226,8 @@ export default class AppBuilder extends Component {
                             users={this.state.customers} 
                             selectCustomer={this.selectCustomerHandler}
                             readInfo={this.extractInfoAccountHandler}
-                            accounts={this.state.accounts} />
+                            accounts={this.state.accounts}
+                            selected={this.state.isSelected} />
                     </Route>
                     <Route path="/accounts">
                         <Accounts 
@@ -242,7 +245,8 @@ export default class AppBuilder extends Component {
                                 transactions={this.state.customer.transactions}
                                 accounts={this.state.accounts}
                                 change={this.accountChangeHandler}
-                                visible={this.hideShowNewAccount} />
+                                visible={this.hideShowNewAccount}
+                                selected={this.state.isSelected} />
                     </Route>
                     <Route>
                         <NewTransaction 

@@ -44,6 +44,10 @@
     font-size: 16px;
 }
 
+.Table td {
+    font-size: 10px;
+}
+
 .NewTrans {
     padding: 5px;
     text-decoration: none;
@@ -64,20 +68,8 @@
         width: 90%;
     }
     
-    .Table tr {
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        align-items: center;
-        border: 1px solid #7a7a7a;
-        border-collapse: collapse;
+    .Table td {
+        font-size: 16px;
     }
-    
-    
-    .Table td, th {
-        display: flex;
-        justify-content: flex-start;
-        width: 100%;
         
-    }    
 }

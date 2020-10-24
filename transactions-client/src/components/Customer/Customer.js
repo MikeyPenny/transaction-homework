@@ -44,7 +44,7 @@ const Customer = (props) => {
                     <p>Surname:  {customer.surname}</p>
                     <p>Balance:  {customer.balance}</p>
 
-                    <button className={classes.Button}>Account info</button>
+                    <button disabled={props.selected} className={classes.Button}>Accounts</button>
                 </div>
                 
                 
@@ -52,7 +52,8 @@ const Customer = (props) => {
             <Transactions 
                     transactions={customer.transactions} 
                     accounts={props.accounts}
-                    select={props.select} />
+                    select={props.select}
+                    selected={props.selected} />
         </div>
     );
 }

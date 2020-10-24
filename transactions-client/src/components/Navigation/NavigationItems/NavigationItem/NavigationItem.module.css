@@ -1,17 +1,19 @@
 .NavigationItem {
-    margin: 10px 0;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .NavigationItem a {
-    color: #8F5C2C;
+    color: #fff;
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
     display: block;
     font-weight: 400;
+    font-size: 20px;
+    
 }
 
 .NavigationItem a:hover,
@@ -34,6 +36,7 @@
         height: 100%;
         padding: 16px 10px;
         border-bottom: 4px solid transparent;
+        font-size: 16px;
     }
     
     .NavigationItem a:hover,
