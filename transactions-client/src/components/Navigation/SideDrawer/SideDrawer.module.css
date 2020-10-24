@@ -6,3 +6,9 @@
     background-color: #006260;
     padding-left: 10px;
 }
+
+@media (min-width: 500px) {
+    .SideDrawer {
+        display: none;
+    }
+}
