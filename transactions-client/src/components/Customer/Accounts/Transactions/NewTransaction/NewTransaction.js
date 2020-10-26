@@ -26,7 +26,7 @@ const NewTransaction = (props) => {
             
             <form onSubmit={submitForm}>
                 <label>
-                    <span>Select Account: </span>
+                    
                     <select name="select" value="" onChange={props.selectAccount}>
                         <option key="1" value="">Select Account</option>
                         {accountJsx}

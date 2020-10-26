@@ -1,5 +1,7 @@
 .Accounts {
     display: flex;
+    align-items: center;
+    flex-flow: column;
     width: 90%;
 }
 
@@ -8,7 +10,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 60%;
+    width: 80%;
 }
 
 .Right {
@@ -16,12 +18,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 40%;
+    width: 60%;
 }
 
 .Table {
     display: flex;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .Table tbody, tr {
@@ -45,15 +48,37 @@
 
 .Button {
     align-self: center;
-    width: 30%;
-    padding: 10px;
+    width: 100%;
+    padding: 8px;
     background-color: #ffd200;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 16px;
+    margin-bottom: 16px;
 }
 
-.Accounts input {
-    padding: 8px;
+
+@media (min-width: 500px) {
+    .Accounts {
+        flex-flow: row;
+    }
+
+    .Left {
+        width: 60%;
+    }
+
+    .Right {
+        width: 40%;
+        justify-content: flex-start;
+    }
+
+    .Table {
+        width: 90%;
+    }
+
+    .Button {
+        width: 60%;
+    }
+    
 }
 

@@ -29,7 +29,7 @@ const NewAccount = (props) => {
                     name="initialCredit" 
                     onChange={props.accountChange}
                     value={props.initCredit} />
-            <button className={classes.Button}>Request Account</button>
+            <button className={classes.Button}>Submit</button>
         </form>
 
         :
