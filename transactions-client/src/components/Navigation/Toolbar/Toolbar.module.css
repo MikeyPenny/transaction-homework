@@ -8,9 +8,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     box-sizing: border-box;
-    z-index: 90;
+    z-index: 200;
 }
 
 .Toolbar nav {
